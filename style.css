@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #fff;
+  background-color: #e4e4e4;
 }
 
 header {
@@ -44,8 +44,10 @@ main {
 
 h1 {
   font-size: 36px;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  color: #ff0000;
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5);
   margin-bottom: 10px;
 }
 
