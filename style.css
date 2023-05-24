@@ -164,6 +164,7 @@ button {
   transition: color 0.3s 0.1s ease-out;
   text-align: center;
   left: 45%;
+  cursor:pointer;
 }
 
 button span {
@@ -195,4 +196,8 @@ button:hover {
 
 button:hover::before {
   box-shadow: inset 0 0 0 10em rgb(255, 0, 0);
+}
+
+#logo { 
+  border-radius: 50%;
 }
