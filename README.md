@@ -21,9 +21,3 @@ Legislation and policy: Highlight the importance of supporting and advocating fo
 Education and outreach: Conduct workshops, seminars, and awareness campaigns to educate the public, schools, and businesses about e-waste. Engage with local communities, organizations, and electronic retailers to spread the message and provide resources for proper e-waste handling.
 
 By increasing awareness about e-waste, we can promote responsible consumption, minimize environmental impact, protect human health, and work towards a more sustainable future.
-
-
-
-
-
- 
