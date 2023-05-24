@@ -1,81 +1,37 @@
-document.addEventListener("DOMContentLoaded", function () {
+// Smooth scrolling function
+function smoothScroll(target, duration) {
+  var targetElement = document.querySelector(target);
+  var targetPosition = targetElement.offsetTop;
+  var startPosition = window.pageYOffset;
+  var distance = targetPosition - startPosition;
+  var startTime = null;
 
-  const navToggle = document.querySelector(".nav-toggle");
-  const navMenu = document.querySelector(".nav-menu");
-
-  navToggle.addEventListener("click", function () {
-    navMenu.classList.toggle("active");
-  });
-
-  const navLinks = document.querySelectorAll(".nav-menu a");
-
-  navLinks.forEach(function (link) {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-
-      const targetId = this.getAttribute("href");
-      const targetSection = document.querySelector(targetId);
-
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop,
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-
-  const form = document.querySelector("#contact-form");
-  const nameInput = document.querySelector("#name");
-  const emailInput = document.querySelector("#email");
-  const messageInput = document.querySelector("#message");
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const nameValue = nameInput.value.trim();
-    const emailValue = emailInput.value.trim();
-    const messageValue = messageInput.value.trim();
-
-    if (nameValue === "") {
-      showError(nameInput, "Name is required");
-    } else {
-      showSuccess(nameInput);
-    }
-
-    if (emailValue === "") {
-      showError(emailInput, "Email is required");
-    } else if (!isValidEmail(emailValue)) {
-      showError(emailInput, "Please enter a valid email");
-    } else {
-      showSuccess(emailInput);
-    }
-
-    if (messageValue === "") {
-      showError(messageInput, "Message is required");
-    } else {
-      showSuccess(messageInput);
-    }
-  });
-
-  function showError(input, errorMessage) {
-    const formControl = input.parentElement;
-    const errorText = formControl.querySelector(".error-text");
-
-    formControl.classList.add("error");
-    errorText.innerText = errorMessage;
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    var timeElapsed = currentTime - startTime;
+    var run = ease(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
   }
 
-  function showSuccess(input) {
-    const formControl = input.parentElement;
-
-    formControl.classList.remove("error");
-    formControl.classList.add("success");
+  // Easing function
+  function ease(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t + b;
+    t--;
+    return (-c / 2) * (t * (t - 2) - 1) + b;
   }
 
-  function isValidEmail(email) {
-    // Basic email validation regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
+  requestAnimationFrame(animation);
+}
+
+// Smooth scrolling on navigation link click
+var navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    var target = this.getAttribute('href');
+    var duration = 1000; // Adjust the scroll duration as needed
+    smoothScroll(target, duration);
+  });
 });
