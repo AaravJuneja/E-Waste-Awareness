@@ -176,3 +176,21 @@ footer p {
 html {
   scroll-behavior: smooth;
 }
+
+.scroll-to-top-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 95%;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.scroll-to-top-btn.show {
+  display: block;
+}
