@@ -172,3 +172,18 @@ footer p {
   font-size: 18px;
   margin-bottom: 0;
 }
+
+button {
+  background: transparent;
+  position: relative;
+  padding: 5px 15px;
+  display: flex;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgb(255,0,0);
+  border-radius: 25px;
+  color: rgb(255,0,0);
+  top: 50%;
+  left: 43.7%;
+}
